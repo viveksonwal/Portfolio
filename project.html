@@ -1,0 +1,1307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Haven — Modern Real Estate">
+  <title>Haven — Modern Real Estate</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================
+       RESET & VARIABLES
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #151515;
+      --gray: #737373;
+      --light: #f6f5f1;
+      --border: #deddd7;
+      --white: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--light);
+      color: var(--black);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(246, 245, 241, 0.92);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(21, 21, 21, 0.08);
+    }
+
+    .nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+    }
+
+    .brand span {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--black);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: "Playfair Display", serif;
+      font-size: 17px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      font-size: 13px;
+      color: #505050;
+    }
+
+    .nav-links a {
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #000;
+    }
+
+    .nav-cta {
+      font-size: 13px;
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 4px;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      width: 34px;
+      cursor: pointer;
+    }
+
+    .menu-btn i {
+      display: block;
+      height: 1px;
+      background: var(--black);
+      margin: 7px 0;
+    }
+
+    /* =========================
+       TYPOGRAPHY
+    ========================= */
+
+    .eyebrow {
+      margin-bottom: 20px;
+      color: #777;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.19em;
+    }
+
+    h1,
+    h2,
+    blockquote {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      line-height: 1.03;
+    }
+
+    h1 {
+      font-size: clamp(58px, 6.7vw, 92px);
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      font-size: clamp(45px, 5vw, 68px);
+      letter-spacing: -0.04em;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .btn {
+      min-height: 50px;
+      padding: 0 22px;
+      border: 1px solid var(--black);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      transition: 0.25s;
+    }
+
+    .btn span {
+      margin-left: 8px;
+    }
+
+    .btn-dark {
+      background: var(--black);
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background: #343434;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--black);
+      color: white;
+    }
+
+    .text-link {
+      font-size: 12px;
+      font-weight: 700;
+      border-bottom: 1px solid #aaa;
+      padding-bottom: 4px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: calc(100vh - 78px);
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      align-items: center;
+      gap: 7%;
+      padding-top: 55px;
+      padding-bottom: 80px;
+    }
+
+    .hero-text {
+      max-width: 470px;
+      margin: 28px 0 34px;
+      color: #6d6d6d;
+      font-size: 16px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    .hero-visual {
+      position: relative;
+      height: min(670px, 72vh);
+      overflow: hidden;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,0.25);
+      pointer-events: none;
+    }
+
+    .hero-card {
+      position: absolute;
+      z-index: 2;
+      bottom: 22px;
+      left: 22px;
+      right: 22px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.94);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: #65735b;
+      border-radius: 50%;
+    }
+
+    .hero-card div {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .hero-card strong {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-card small {
+      color: #777;
+      font-size: 11px;
+    }
+
+    .hero-card .arrow {
+      margin-left: auto;
+      font-size: 18px;
+    }
+
+    /* =========================
+       STATS
+    ========================= */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats div {
+      padding: 28px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      border-right: 1px solid var(--border);
+    }
+
+    .stats div:last-child {
+      border-right: 0;
+    }
+
+    .stats strong {
+      font-family: "Playfair Display", serif;
+      font-size: 31px;
+      font-weight: 500;
+    }
+
+    .stats span {
+      color: #888;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+    }
+
+    /* =========================
+       GENERAL SECTION
+    ========================= */
+
+    .section {
+      padding-top: 135px;
+      padding-bottom: 135px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 0.55fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 55px;
+    }
+
+    .section-intro {
+      max-width: 360px;
+      padding-bottom: 4px;
+      color: #777;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       PROPERTIES
+    ========================= */
+
+    .property-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+    }
+
+    .property-card {
+      min-width: 0;
+    }
+
+    .property-large {
+      grid-row: span 2;
+    }
+
+    .image-wrap {
+      position: relative;
+      height: 390px;
+      overflow: hidden;
+    }
+
+    .property-large .image-wrap {
+      height: 600px;
+    }
+
+    .property-card img {
+      transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .property-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .tag {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding: 7px 10px;
+      background: white;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .property-info {
+      padding-top: 15px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .property-info h3 {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .property-info p {
+      margin-top: 2px;
+      color: #888;
+      font-size: 11px;
+    }
+
+    .property-info > strong {
+      font-size: 13px;
+    }
+
+    .center {
+      margin-top: 58px;
+      text-align: center;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      background: #e9e7e0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10%;
+      align-items: center;
+    }
+
+    .about-image {
+      height: 680px;
+      position: relative;
+    }
+
+    .about-image > span {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      padding: 10px 13px;
+      background: white;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+    }
+
+    .about-copy > p:not(.eyebrow) {
+      max-width: 480px;
+      margin: 27px 0 35px;
+      color: #686868;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .feature-list {
+      margin-bottom: 37px;
+      border-top: 1px solid #c8c6be;
+    }
+
+    .feature-list div {
+      display: grid;
+      grid-template-columns: 45px 1fr;
+      padding: 16px 0;
+      border-bottom: 1px solid #c8c6be;
+      font-size: 12px;
+    }
+
+    .feature-list span {
+      color: #999;
+    }
+
+    /* =========================
+       QUOTE
+    ========================= */
+
+    .quote-section {
+      padding: 125px 0;
+      background: var(--black);
+      color: white;
+    }
+
+    .quote {
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .quote .eyebrow {
+      color: #999;
+    }
+
+    blockquote {
+      margin: 35px auto;
+      font-size: clamp(40px, 5vw, 65px);
+      letter-spacing: -0.035em;
+    }
+
+    .quote > span {
+      color: #aaa;
+      font-size: 11px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      padding-bottom: 150px;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10%;
+      padding: 75px 8%;
+      background: #e9e7e0;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    label {
+      color: #777;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      margin-top: 8px;
+      padding: 12px 0;
+      border: 0;
+      border-bottom: 1px solid #bdbbb4;
+      outline: none;
+      resize: vertical;
+      background: transparent;
+      font: inherit;
+      font-size: 13px;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--black);
+    }
+
+    form .btn {
+      align-self: flex-start;
+      margin-top: 6px;
+      cursor: pointer;
+    }
+
+    .form-message {
+      min-height: 15px;
+      color: #65735b;
+      font-size: 11px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 25px;
+      color: #777;
+      font-size: 11px;
+    }
+
+    .footer p {
+      color: #999;
+      font-size: 10px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .container {
+        width: min(100% - 32px, 680px);
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links.open {
+        position: absolute;
+        top: 78px;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding: 22px 16px;
+        background: var(--light);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding-top: 55px;
+      }
+
+      .hero-visual {
+        height: 540px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats div:nth-child(2) {
+        border-right: 0;
+      }
+
+      .stats div {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .section {
+        padding-top: 90px;
+        padding-bottom: 90px;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 38px;
+      }
+
+      .property-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .property-large {
+        grid-row: auto;
+      }
+
+      .property-large .image-wrap,
+      .property-card .image-wrap {
+        height: 430px;
+      }
+
+      .about-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      .about-image {
+        height: 500px;
+      }
+
+      .contact-box {
+        padding: 50px 28px;
+      }
+
+      .footer-top {
+        flex-wrap: wrap;
+        gap: 22px;
+      }
+
+      .footer-links {
+        order: 3;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      h1 {
+        font-size: 52px;
+      }
+
+      .hero {
+        padding-bottom: 60px;
+      }
+
+      .hero-visual {
+        height: 420px;
+      }
+
+      .stats strong {
+        font-size: 25px;
+      }
+
+      .stats span {
+        font-size: 8px;
+      }
+
+      .hero-actions {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .property-large .image-wrap,
+      .property-card .image-wrap {
+        height: 330px;
+      }
+
+      .about-image {
+        height: 390px;
+      }
+
+      .quote-section {
+        padding: 90px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="site-header">
+
+    <nav class="nav container">
+
+      <a href="#top" class="brand">
+        <span>H</span>
+        HAVEN
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#properties">Properties</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a href="#contact" class="nav-cta">
+        Get in touch ↗
+      </a>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <i></i>
+        <i></i>
+      </button>
+
+    </nav>
+
+  </header>
+
+
+  <main id="top">
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero container">
+
+      <div class="hero-copy">
+
+        <p class="eyebrow">
+          CURATED REAL ESTATE
+        </p>
+
+        <h1>
+          Find a place<br>
+          <em>worth living in.</em>
+        </h1>
+
+        <p class="hero-text">
+          Thoughtfully selected homes and spaces for people who value
+          good design, great locations, and a better way of living.
+        </p>
+
+        <div class="hero-actions">
+
+          <a href="#properties" class="btn btn-dark">
+            Explore properties <span>↗</span>
+          </a>
+
+          <a href="#about" class="text-link">
+            Why Haven →
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-visual">
+
+        <img
+          src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85"
+          alt="Modern luxury living room"
+        >
+
+        <div class="hero-card">
+
+          <span class="status-dot"></span>
+
+          <div>
+            <strong>01 / Featured home</strong>
+            <small>Malibu, California</small>
+          </div>
+
+          <span class="arrow">↗</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         STATS
+    ========================== -->
+
+    <section class="stats container">
+
+      <div>
+        <strong>12+</strong>
+        <span>Years of experience</span>
+      </div>
+
+      <div>
+        <strong>240</strong>
+        <span>Homes delivered</span>
+      </div>
+
+      <div>
+        <strong>18</strong>
+        <span>Prime locations</span>
+      </div>
+
+      <div>
+        <strong>4.9/5</strong>
+        <span>Client satisfaction</span>
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROPERTIES
+    ========================== -->
+
+    <section class="properties section container" id="properties">
+
+      <div class="section-head">
+
+        <div>
+          <p class="eyebrow">
+            OUR SELECTION
+          </p>
+
+          <h2>
+            Spaces with a<br>
+            <em>sense of place.</em>
+          </h2>
+        </div>
+
+        <p class="section-intro">
+          A small collection of exceptional properties,
+          chosen for architecture, atmosphere, and location.
+        </p>
+
+      </div>
+
+
+      <div class="property-grid">
+
+        <!-- Property 1 -->
+
+        <article class="property-card property-large">
+
+          <div class="image-wrap">
+
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85"
+              alt="Modern villa exterior"
+            >
+
+            <span class="tag">
+              For sale
+            </span>
+
+          </div>
+
+          <div class="property-info">
+
+            <div>
+              <h3>Casa Verde</h3>
+              <p>Los Angeles, CA</p>
+            </div>
+
+            <strong>
+              $2.85M
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <!-- Property 2 -->
+
+        <article class="property-card">
+
+          <div class="image-wrap">
+
+            <img
+              src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85"
+              alt="Contemporary home interior"
+            >
+
+            <span class="tag">
+              For sale
+            </span>
+
+          </div>
+
+          <div class="property-info">
+
+            <div>
+              <h3>Oak Residence</h3>
+              <p>Austin, TX</p>
+            </div>
+
+            <strong>
+              $1.42M
+            </strong>
+
+          </div>
+
+        </article>
+
+
+        <!-- Property 3 -->
+
+        <article class="property-card">
+
+          <div class="image-wrap">
+
+            <img
+              src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85"
+              alt="Minimal luxury interior"
+            >
+
+            <span class="tag">
+              New
+            </span>
+
+          </div>
+
+          <div class="property-info">
+
+            <div>
+              <h3>Northline Loft</h3>
+              <p>New York, NY</p>
+            </div>
+
+            <strong>
+              $980K
+            </strong>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <div class="center">
+
+        <a href="#contact" class="btn btn-outline">
+          View all properties <span>↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about section" id="about">
+
+      <div class="container about-grid">
+
+        <div class="about-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85"
+            alt="Bright modern house interior"
+          >
+
+          <span>
+            EST. 2014
+          </span>
+
+        </div>
+
+
+        <div class="about-copy">
+
+          <p class="eyebrow">
+            THE HAVEN APPROACH
+          </p>
+
+          <h2>
+            Real estate,<br>
+            <em>without the noise.</em>
+          </h2>
+
+          <p>
+            We believe finding a home should feel inspiring,
+            not overwhelming. Haven combines local expertise
+            with a design-first eye to make every property
+            search simpler and more personal.
+          </p>
+
+
+          <div class="feature-list">
+
+            <div>
+              <span>01</span>
+              <strong>Design-led selection</strong>
+            </div>
+
+            <div>
+              <span>02</span>
+              <strong>Local market knowledge</strong>
+            </div>
+
+            <div>
+              <span>03</span>
+              <strong>Personal guidance</strong>
+            </div>
+
+          </div>
+
+
+          <a href="#contact" class="text-link">
+            Discover our story →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUOTE
+    ========================== -->
+
+    <section class="quote-section">
+
+      <div class="container quote">
+
+        <p class="eyebrow">
+          A BETTER WAY HOME
+        </p>
+
+        <blockquote>
+          “A home is more than an address.
+          It is the backdrop to the life you
+          want to live.”
+        </blockquote>
+
+        <span>
+          — Haven Real Estate
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="contact section container" id="contact">
+
+      <div class="contact-box">
+
+        <div>
+
+          <p class="eyebrow">
+            LET'S TALK
+          </p>
+
+          <h2>
+            Ready to find<br>
+            <em>your place?</em>
+          </h2>
+
+        </div>
+
+
+        <form id="contactForm">
+
+          <label>
+            Name
+
+            <input
+              type="text"
+              placeholder="Your name"
+              required
+            >
+
+          </label>
+
+
+          <label>
+            Email
+
+            <input
+              type="email"
+              placeholder="you@example.com"
+              required
+            >
+
+          </label>
+
+
+          <label>
+            What are you looking for?
+
+            <textarea
+              rows="3"
+              placeholder="Tell us a little about your ideal property"
+            ></textarea>
+
+          </label>
+
+
+          <button
+            class="btn btn-dark"
+            type="submit"
+          >
+            Send enquiry <span>↗</span>
+          </button>
+
+
+          <p
+            class="form-message"
+            id="formMessage"
+          ></p>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="footer">
+
+    <div class="container footer-top">
+
+      <a href="#top" class="brand">
+        <span>H</span>
+        HAVEN
+      </a>
+
+      <div class="footer-links">
+
+        <a href="#properties">Properties</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+
+      </div>
+
+      <p>
+        © 2026 Haven Real Estate
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    /* Mobile Menu */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+
+      const isOpen =
+        navLinks.classList.toggle("open");
+
+      menuBtn.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
+
+    });
+
+
+    /* Close menu after clicking link */
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navLinks.classList.remove("open");
+
+          menuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        });
+
+      });
+
+
+    /* Contact Form */
+
+    const form =
+      document.getElementById("contactForm");
+
+    const message =
+      document.getElementById("formMessage");
+
+    form.addEventListener("submit", (event) => {
+
+      event.preventDefault();
+
+      message.textContent =
+        "Thanks — your enquiry has been received.";
+
+      form.reset();
+
+    });
+
+  </script>
+
+</body>
+</html>

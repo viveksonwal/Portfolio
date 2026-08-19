@@ -1,0 +1,561 @@
+/*==================================================
+RESPONSIVE CSS
+Author : Vivek Portfolio
+==================================================*/
+
+
+/*==========================================
+1400px
+==========================================*/
+
+@media (max-width:1400px){
+
+.container{
+
+    width:94%;
+
+}
+
+.hero-container{
+
+    gap:60px;
+
+}
+
+.hero h1{
+
+    font-size:5rem;
+
+}
+
+}
+
+
+
+/*==========================================
+1200px
+==========================================*/
+
+@media (max-width:1200px){
+
+.section{
+
+    padding:100px 0;
+
+}
+
+.hero-container{
+
+    gap:50px;
+
+}
+
+.hero h1{
+
+    font-size:4.5rem;
+
+}
+
+.about-grid{
+
+    gap:50px;
+
+}
+
+.contact-wrapper{
+
+    gap:50px;
+
+}
+
+.projects-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.services-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.skills-grid{
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+}
+
+
+
+/*==========================================
+1024px
+==========================================*/
+
+@media (max-width:1024px){
+
+.hero-container{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
+
+.hero-buttons{
+
+    justify-content:center;
+
+}
+
+.hero-stats{
+
+    justify-content:center;
+
+}
+
+.hero-right{
+
+    margin-top:60px;
+
+}
+
+.about-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.contact-wrapper{
+
+    grid-template-columns:1fr;
+
+}
+
+.stats-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+
+/*==========================================
+992px
+==========================================*/
+
+@media (max-width:992px){
+
+.nav-links{
+
+    display:none;
+
+}
+
+.menu-btn{
+
+    display:flex;
+
+}
+
+.resume-btn{
+
+    display:none;
+
+}
+
+.section-heading h2{
+
+    font-size:3rem;
+
+}
+
+.projects-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.services-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.testimonial-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.skills-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+
+/*==========================================
+768px
+==========================================*/
+
+@media (max-width:768px){
+
+:root{
+
+    --header-height:75px;
+
+}
+
+.section{
+
+    padding:80px 0;
+
+}
+
+.section-heading{
+
+    margin-bottom:50px;
+
+}
+
+.section-heading h2{
+
+    font-size:2.5rem;
+
+}
+
+.hero{
+
+    min-height:auto;
+
+    padding:60px 0 80px;
+
+}
+
+.hero-container{
+
+    gap:45px;
+
+}
+
+.hero h1{
+
+    font-size:3.6rem;
+
+    letter-spacing:-1px;
+
+}
+
+.hero-subtitle{
+
+    font-size:1rem;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+    width:100%;
+
+}
+
+.hero-buttons .btn{
+
+    width:100%;
+
+}
+
+.hero-stats{
+
+    justify-content:center;
+
+    gap:30px;
+
+}
+
+.profile-card{
+
+    width:100%;
+
+    max-width:380px;
+
+}
+
+.about-info{
+
+    grid-template-columns:1fr;
+
+}
+
+.skills-grid{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+.footer-top,
+
+.footer-bottom{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.contact-form{
+
+    padding:25px;
+
+}
+
+.mobile-menu{
+
+    width:100%;
+
+}
+
+}
+
+
+
+/*==========================================
+576px
+==========================================*/
+
+@media (max-width:576px){
+
+.hero h1{
+
+    font-size:3rem;
+
+}
+
+.hero-tag{
+
+    font-size:.8rem;
+
+}
+
+.btn{
+
+    padding:15px 24px;
+
+}
+
+.stats-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.services-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.projects-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.skills-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.project-filter{
+
+    gap:10px;
+
+}
+
+.project-filter button{
+
+    width:100%;
+
+}
+
+.experience-badge{
+
+    position:static;
+
+    width:100%;
+
+    margin-top:20px;
+
+}
+
+}
+
+
+
+/*==========================================
+425px
+==========================================*/
+
+@media (max-width:425px){
+
+.container{
+
+    width:92%;
+
+}
+
+.hero h1{
+
+    font-size:2.6rem;
+
+}
+
+.hero-subtitle{
+
+    font-size:.95rem;
+
+}
+
+.section-heading h2{
+
+    font-size:2rem;
+
+}
+
+.service-card,
+
+.project-card,
+
+.testimonial-card,
+
+.contact-form{
+
+    padding:22px;
+
+}
+
+.timeline{
+
+    padding-left:30px;
+
+}
+
+.timeline-dot{
+
+    left:-28px;
+
+}
+
+}
+
+
+
+/*==========================================
+375px
+==========================================*/
+
+@media (max-width:375px){
+
+.hero h1{
+
+    font-size:2.3rem;
+
+}
+
+.section{
+
+    padding:70px 0;
+
+}
+
+.hero-stats{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.footer-links{
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.social-links{
+
+    flex-direction:column;
+
+}
+
+.social-links a{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+}
+
+
+
+/*==========================================
+320px
+==========================================*/
+
+@media (max-width:320px){
+
+.hero h1{
+
+    font-size:2rem;
+
+}
+
+.hero-tag{
+
+    font-size:.72rem;
+
+    padding:8px 14px;
+
+}
+
+.btn{
+
+    font-size:.9rem;
+
+    padding:14px 18px;
+
+}
+
+.section-heading h2{
+
+    font-size:1.8rem;
+
+}
+
+.profile-card{
+
+    max-width:100%;
+
+}
+
+.contact-form{
+
+    padding:18px;
+
+}
+
+}

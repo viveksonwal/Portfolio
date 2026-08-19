@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Glyco Hit — Products</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f7f5;
+      color: #111;
+    }
+
+    /* =========================
+       MAIN CONTAINER
+    ========================= */
+
+    .container {
+      width: 100%;
+      max-width: 1450px;
+      margin: auto;
+      padding: 50px 30px 80px;
+    }
+
+    /* =========================
+       HEADING
+    ========================= */
+
+    .heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .heading .brand {
+      color: #b27a18;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+    }
+
+    .heading h1 {
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -2px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .heading p {
+      max-width: 600px;
+      margin: auto;
+      color: #707070;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       PRODUCT GRID
+    ========================= */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    /* =========================
+       PRODUCT CARD
+    ========================= */
+
+    .product-card {
+      background: #ffffff;
+      border: 1px solid #e8e8e5;
+      border-radius: 22px;
+      overflow: hidden;
+
+      box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.04);
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+
+      box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.10);
+    }
+
+    /* =========================
+       IMAGE
+    ========================= */
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.03);
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .product-content {
+      padding: 21px;
+    }
+
+    .brand-name {
+      display: inline-block;
+
+      color: #b27a18;
+
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 9px;
+    }
+
+    .product-content h2 {
+      font-size: 20px;
+      line-height: 1.15;
+
+      letter-spacing: -0.5px;
+
+      margin-bottom: 10px;
+    }
+
+    .description {
+      color: #707070;
+
+      font-size: 13px;
+
+      line-height: 1.5;
+
+      min-height: 40px;
+    }
+
+    /* =========================
+       BOTTOM
+    ========================= */
+
+    .product-bottom {
+      border-top: 1px solid #eeeeec;
+
+      margin-top: 18px;
+      padding-top: 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 10px;
+    }
+
+    .product-info {
+      font-size: 11px;
+      font-weight: 700;
+      color: #444;
+    }
+
+    .view-btn {
+      border: none;
+
+      background: #111;
+      color: white;
+
+      padding: 10px 15px;
+
+      border-radius: 50px;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition: 0.25s ease;
+    }
+
+    .view-btn:hover {
+      background: #b27a18;
+      transform: scale(1.04);
+    }
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 1150px) {
+
+      .products {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+    }
+
+    /* =========================
+       SMALL TABLET
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      .container {
+        padding: 35px 18px 60px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .product-content {
+        padding: 17px;
+      }
+
+      .product-content h2 {
+        font-size: 17px;
+      }
+
+      .product-bottom {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .view-btn {
+        width: 100%;
+      }
+
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 500px) {
+
+      .container {
+        padding: 30px 14px 50px;
+      }
+
+      .heading {
+        margin-bottom: 28px;
+      }
+
+      .heading h1 {
+        font-size: 34px;
+      }
+
+      .heading p {
+        font-size: 13px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .product-image {
+        aspect-ratio: 1 / 0.95;
+      }
+
+      .product-bottom {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .view-btn {
+        width: auto;
+      }
+
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <main class="container">
+
+    <!-- =========================
+         HEADING
+    ========================== -->
+
+    <section class="heading">
+
+      <div class="brand">
+        GLYCO HIT
+      </div>
+
+      <h1>
+        Everyday Skin & Care
+      </h1>
+
+      <p>
+        Premium skincare and personal care essentials
+        designed for everyday confidence.
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         PRODUCTS
+    ========================== -->
+
+    <section class="products">
+
+
+      <!-- PRODUCT 1 -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img
+            src="Lip balm.png"
+            alt="Glyco Hit Lip Balm"
+          >
+        </div>
+
+        <div class="product-content">
+
+          <span class="brand-name">
+            GLYCO HIT
+          </span>
+
+          <h2>
+            Lip Balm
+          </h2>
+
+          <p class="description">
+            Nourish, protect and repair your lips
+            with everyday hydration.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="product-info">
+              UNISEX • SPF 15
+            </span>
+
+            <button class="view-btn">
+              View Product
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PRODUCT 2 -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img
+            src="Hair Serum.png"
+            alt="Glyco Hit Hair Growth Serum"
+          >
+        </div>
+
+        <div class="product-content">
+
+          <span class="brand-name">
+            GLYCO HIT
+          </span>
+
+          <h2>
+            Hair Growth Serum
+          </h2>
+
+          <p class="description">
+            Advanced hair care formula designed
+            to strengthen roots.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="product-info">
+              60 ML
+            </span>
+
+            <button class="view-btn">
+              View Product
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PRODUCT 3 -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img
+            src="Face Mask.png"
+            alt="Glyco Hit Face Mask"
+          >
+        </div>
+
+        <div class="product-content">
+
+          <span class="brand-name">
+            GLYCO HIT
+          </span>
+
+          <h2>
+            Detox & Glow Face Mask
+          </h2>
+
+          <p class="description">
+            Purify, brighten and refresh your skin
+            with a clay-based face mask.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="product-info">
+              100 G
+            </span>
+
+            <button class="view-btn">
+              View Product
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PRODUCT 4 -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img
+            src="3 in 1.png"
+            alt="Glow Mode Products"
+          >
+        </div>
+
+        <div class="product-content">
+
+          <span class="brand-name">
+            GLOW MODE
+          </span>
+
+          <h2>
+            3-in-1 Care Collection
+          </h2>
+
+          <p class="description">
+            Hair removal spray, retinol cream
+            and underarm roll-on.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="product-info">
+              DAILY CARE
+            </span>
+
+            <button class="view-btn">
+              View Product
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PRODUCT 5 -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img
+            src="Pigmentation.png"
+            alt="Pigmentation Jelly"
+          >
+        </div>
+
+        <div class="product-content">
+
+          <span class="brand-name">
+            GLYCO HIT
+          </span>
+
+          <h2>
+            Pigmentation Jelly
+          </h2>
+
+          <p class="description">
+            Designed for dark spot correction
+            and an even-looking skin tone.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="product-info">
+              50 G
+            </span>
+
+            <button class="view-btn">
+              View Product
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PRODUCT 6 -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img
+            src="Gluta.png"
+            alt="Glutathione Tablets"
+          >
+        </div>
+
+        <div class="product-content">
+
+          <span class="brand-name">
+            GLYCO HIT
+          </span>
+
+          <h2>
+            Glutathione Tablets
+          </h2>
+
+          <p class="description">
+            Glutathione-based nutritional supplement
+            with antioxidant support.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="product-info">
+              60 TABLETS
+            </span>
+
+            <button class="view-btn">
+              View Product
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PRODUCT 7 -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img
+            src="Sun screen.png"
+            alt="Sunscreen Jelly"
+          >
+        </div>
+
+        <div class="product-content">
+
+          <span class="brand-name">
+            GLYCO HIT
+          </span>
+
+          <h2>
+            Sunscreen Jelly
+          </h2>
+
+          <p class="description">
+            Lightweight daily UV protection with
+            a hydrating finish.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="product-info">
+              SPF 50 • 50 G
+            </span>
+
+            <button class="view-btn">
+              View Product
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    const buttons = document.querySelectorAll(".view-btn");
+
+    buttons.forEach(function(button) {
+
+      button.addEventListener("click", function() {
+
+        const card = button.closest(".product-card");
+
+        const productName =
+          card.querySelector("h2").textContent.trim();
+
+        alert(
+          productName +
+          " — Product details coming soon."
+        );
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
